@@ -27,6 +27,9 @@ Route::apiResource('/question', 'QuestionController');
 Route::apiResource('/category', 'CategoryController');
 // get replies
 Route::apiResource('/question/{question}/reply', 'ReplyController');
+// like replies
+Route::post('/like/{reply}', 'LikeController@likeIt');
+Route::delete('/like/{reply}', 'LikeController@unLikeIt');
 
 
 
