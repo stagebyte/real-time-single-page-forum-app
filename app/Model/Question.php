@@ -34,7 +34,7 @@ class Question extends Model
      */
     public function replies()
     {
-        return $this->hasMany(Reply::class);
+        return $this->hasMany(Reply::class)->orderBy('id', 'Desc');
     }
 
     // A question can only have one category

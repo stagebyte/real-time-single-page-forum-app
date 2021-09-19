@@ -8,6 +8,7 @@ use App\User;
 
 class Reply extends Model
 {
+    protected $fillable = ['body','question_id','user_id'];
     //every reply falls under a question
     public function question()
     {
