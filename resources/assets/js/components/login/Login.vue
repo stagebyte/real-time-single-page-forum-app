@@ -24,6 +24,10 @@
             >
             Login
             </v-btn>
+
+            <router-link to="/signup">
+                <v-btn color="blue">Signup</v-btn>
+            </router-link>
         </v-form>
 
     </v-container>
@@ -39,12 +43,18 @@
                 }
             }
         },
+        created(){
+            if(User.loggedIn()){
+                this.$router.push({name: 'forum'})
+            }
+        },
         methods: {
             login(){
                 //test the login
                 //alert('login')
                 //submit the login using axios
                 User.login(this.form)
+                //this.$router.push({name: 'forum'})
             }
         }
     }

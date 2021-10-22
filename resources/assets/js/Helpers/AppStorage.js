@@ -21,21 +21,25 @@ class AppStorage {
 
     // clear token when a user logs out
     clear() {
-        localStorage.removeItem(token);
-        localStorage.removeItem(user);
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
     }
 
-    //how to know if token & user are available and get that from local storage
+    //how to know if token are available and get that from local storage
 
     getToken() {
         let token;
         //if (token) {
         return localStorage.getItem("token", token);
+        //return localStorage.getItem("token");
         //}
     }
 
+    //how to know if user are available and get that from local storage
+
     getUser() {
         return localStorage.getItem("user", user);
+        //return localStorage.getItem("user");
     }
 }
 

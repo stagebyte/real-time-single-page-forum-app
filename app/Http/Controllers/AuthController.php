@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Http\Requests\SignupRequest;
 
 class AuthController extends Controller
 {
@@ -41,7 +42,7 @@ class AuthController extends Controller
     /**
      * Sign up a user
      */
-    public function signup(Request $request)
+    public function signup(SignupRequest $request)
     {
        //$request->password = bcrypt($request->password);
         User::create($request->all());
