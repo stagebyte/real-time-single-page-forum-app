@@ -51,14 +51,21 @@ class QuestionController extends Controller
         $question->category_id = $request->category_id;
         $question->user_id = $request->user_id;
         $question->save();
+
         */
 
-        //to ensure the only logged user can ask question
-        //auth()->user()->question()->create($request->all());
-
         //method 2
-        Question::create($request->all());
-        return response('Created', Response::HTTP_CREATED);
+        $request['slug'] = str_slug($request->title);
+
+        //$request['user_id'] = str_slug($request->user_id);
+
+        //Question::create($request->all());
+
+        //to ensure the only logged user can ask question
+        $question = auth()->user()->question()->create($request->all());
+
+        return response(new QuestionResource($question), Response::HTTP_CREATED);
+        // return response('Created', Response::HTTP_CREATED);
     }
 
     /**

@@ -8,8 +8,8 @@ use App\User;
 
 class Question extends Model
 {
-    //protected $fillable = ['title', 'slug', 'body', 'category_id', 'user_id'];
-    protected $guarded = [];
+    protected $fillable = ['title', 'slug', 'body', 'category_id', 'user_id'];
+   // protected $guarded = [];
 
     public function getRouteKeyName()
     {
@@ -50,6 +50,10 @@ class Question extends Model
 
     public function getPathAttribute()
     {
-        return asset("api/question/$this->slug");
+        //define the full-path http://localhost:8000/api/question/this-title
+        //return asset("api/question/$this->slug");
+
+        // define the slug only api/question/this-title
+        return "question/$this->slug";
     }
 }
